@@ -303,12 +303,3 @@ externalRedis:
   ## the host of the external redis
   ## [FAQ] https://github.com/airflow-helm/charts/blob/main/charts/airflow/docs/faq/database/external-redis.md
   host: localhost
-
-###################################
-## CONFIG | Customize Parameters (Airflow + Argo CD + Helm)
-###################################
-createUserJob:
-  useHelmHooks: false
-
-migrateDatabaseJob:
-  useHelmHooks: false
