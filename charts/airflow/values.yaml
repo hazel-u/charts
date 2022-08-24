@@ -169,7 +169,38 @@ workers:
   enabled: false
   ## add
   podDisruptionBudget:
+    ## if a PodDisruptionBudget resource is created for the worker StatefulSet
+    ##
     enabled: false
+
+    ## the maximum unavailable pods/percentage for the worker StatefulSet
+    ##
+    maxUnavailable: ""
+
+    ## the minimum available pods/percentage for the worker StatefulSet
+    ##
+    minAvailable: ""
+
+  ## configs for the HorizontalPodAutoscaler of the worker Pods
+  ## - [WARNING] if using git-sync, ensure `dags.gitSync.resources` is set
+  ## - [WARNING] if using worker log-cleanup, ensure `workers.logCleanup.resources` is set
+  ##
+  ## ____ EXAMPLE _______________
+  ##   autoscaling:
+  ##     enabled: true
+  ##     maxReplicas: 16
+  ##     metrics:
+  ##     - type: Resource
+  ##       resource:
+  ##         name: memory
+  ##         target:
+  ##           type: Utilization
+  ##           averageUtilization: 80
+  ##
+  autoscaling:
+    enabled: false
+    maxReplicas: 2
+    metrics: []
 
 ###################################
 ## COMPONENT | Triggerer
