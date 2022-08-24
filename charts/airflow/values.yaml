@@ -167,6 +167,9 @@ web:
 workers:
   ## if the airflow workers StatefulSet should be deployed
   enabled: false
+  ## add
+  podDisruptionBudget:
+    enabled: false
 
 ###################################
 ## COMPONENT | Triggerer
